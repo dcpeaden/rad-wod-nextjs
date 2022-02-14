@@ -25,6 +25,7 @@ import {
   MoonIcon,
   SunIcon,
 } from '@chakra-ui/icons';
+import router from 'next/router';
 
 const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -55,7 +56,7 @@ const Navbar = () => {
             aria-label={'Toggle Navigation'}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+        <Flex onClick={() => router.push('/')} flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
           <Text>Logo</Text>
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
@@ -83,9 +84,10 @@ const Navbar = () => {
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'pink.400'}
+            colorScheme={'red'}
+            bg={'red.400'}
             _hover={{
-              bg: 'pink.300',
+              bg: 'red.500',
             }}>
             Sign Up
           </Button>
@@ -154,12 +156,12 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={'block'}
       p={2}
       rounded={'md'}
-      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+      _hover={{ bg: useColorModeValue('red.50', 'gray.900') }}>
       <Stack direction={'row'} align={'center'}>
         <Box>
           <Text
             transition={'all .3s ease'}
-            _groupHover={{ color: 'pink.400' }}
+            _groupHover={{ color: 'red.400' }}
             fontWeight={500}>
             {label}
           </Text>
@@ -173,7 +175,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           justify={'flex-end'}
           align={'center'}
           flex={1}>
-          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={'red.400'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -256,42 +258,42 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Inspiration',
+    label: 'Performance',
     children: [
       {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
+        label: 'Work Out of the Day',
+        subLabel: 'Personal performance for today’s WOD.',
+        href: '/wod',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
+        label: 'Tracking Over Time',
+        subLabel: 'Stats you and your members can count on',
+        href: '/tracking',
       },
     ],
   },
   {
-    label: 'Find Work',
+    label: 'Plugins',
     children: [
       {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
+        label: 'Members',
+        subLabel: 'Built for Your Lifestyle',
+        href: '/plugins',
       },
       {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
+        label: 'Owners',
+        subLabel: 'Analytics Driven Perfection',
+        href: '/analytics',
       },
     ],
   },
   {
-    label: 'Learn Design',
-    href: '#',
+    label: 'Migrating to RAD',
+    href: '/migrating',
   },
   {
-    label: 'Hire Designers',
-    href: '#',
+    label: 'Pricing',
+    href: '/pricing',
   },
 ];
 
