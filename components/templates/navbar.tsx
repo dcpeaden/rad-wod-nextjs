@@ -74,15 +74,17 @@ const Navbar = () => {
             fontSize={'sm'}
             fontWeight={400}
             variant={'link'}
-            href={'#'}>
+            href={'/sign-in'}>
             Sign In
           </Button>
           <Button
+            as={'a'}
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
             colorScheme={'red'}
+            href={'/sign-up'}
             bg={'red.400'}
             _hover={{
               bg: 'red.500',
