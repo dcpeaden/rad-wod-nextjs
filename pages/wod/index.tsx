@@ -1,13 +1,13 @@
-import { Component } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
 import Navbar from "../../components/templates/navbar";
 import TwoColWithImageComponent from "../../components/templates/two-columns-with-image";
 
 const WodLandingPage = () => {
   return (
-    <Component>
+    <ChakraProvider>
       <Navbar />
       <TwoColWithImageComponent />
-    </Component>
+    </ChakraProvider>
   );
 };
 
